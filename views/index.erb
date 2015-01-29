@@ -1,0 +1,82 @@
+<head>
+  <title>musicdb</title>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<section class="topper">
+  <h1>dB</h1>
+</section>
+
+<section class="categories">
+
+<ul>
+	<% @tags.each do |tag| %>
+	<li><a href="/<%= tag.text %>"><%= tag.text %></a><li>
+	<% end %>
+</ul>
+
+<div id="new-link">
+  <form action="/links" method="post">
+    Url: <input type="text" name="url">
+    Title: <input type="text" name="title">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add link">
+  </form>
+</div>
+
+</section>
+
+<section class="main-body">
+
+	<section class="articles">
+
+
+	<article id="first-article">
+		<h3>First tune</h3>
+
+		<container class="videos">
+			
+
+			<ul>
+ 			 	<% @links.each do |link| %>
+   		 	<li><a href="<%= link.url %>"><%= link.title %></a></li>
+  			<% end %>
+			</ul>
+
+		</container>
+
+		<p>some text here n that sorta thing</p>
+
+
+	</article>
+
+
+	<article id="second-article">
+
+		<h3>Second tune</h3>
+
+		<container class="videos">
+
+
+
+		</container>
+
+		<p>some text here n that sorta thing</p>
+
+	</article>
+
+	</section>
+
+</section>
+
+<!--   {{> hello}} -->
+
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
