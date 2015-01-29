@@ -22,6 +22,7 @@
   <form action="/links" method="post">
     Url: <input type="text" name="url">
     Title: <input type="text" name="title">
+    Blog: <input type="text" name="blog">
     Tags: <input type="text" name="tags">
     <input type="submit" value="Add link">
   </form>
@@ -38,17 +39,14 @@
 		<h3>First tune</h3>
 
 		<container class="videos">
-			
 
 			<ul>
- 			 	<% @links.each do |link| %>
-   		 	<li><a href="<%= link.url %>"><%= link.title %></a></li>
-  			<% end %>
+				<li><a href="<%= @links[0].url %>"><%= @links[0].title %></a></li>
 			</ul>
 
 		</container>
 
-		<p>some text here n that sorta thing</p>
+		<p><%= @links[0].blog %></p>
 
 
 	</article>
@@ -60,13 +58,49 @@
 
 		<container class="videos">
 
-
+			<ul>
+				<li><a href="<%= @links[1].url %>"><%= @links[1].title %></a></li>
+			</ul>
 
 		</container>
 
-		<p>some text here n that sorta thing</p>
+		<p><%= @links[1].blog %></p>
 
 	</article>
+
+	<article id="second-article">
+
+		<h3>Third Tune</h3>
+
+		<container class="videos">
+
+			<ul>
+				<li><a href="<%= @links[2].url %>"><%= @links[2].title %></a></li>
+			</ul>
+
+		</container>
+
+		<p><%= @links[2].blog %></p>
+
+	</article>
+
+		<article id="second-article">
+
+		<h3>Fourth Tune</h3>
+
+		<container class="videos">
+
+			<ul>
+				<li><a href="<%= @links[3].url %>"><%= @links[3].title %></a></li>
+			</ul>
+
+		</container>
+
+		<p><%= @links[3].blog %></p>
+
+	</article>
+
+
 
 	</section>
 
