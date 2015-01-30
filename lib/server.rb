@@ -1,7 +1,6 @@
 require 'data_mapper'
 require 'sinatra/base'
 
-
 class DB < Sinatra::Base
 
 	set :views, Proc.new { File.join(root, '..',"views") }
@@ -19,8 +18,7 @@ class DB < Sinatra::Base
 
 	DataMapper.finalize
 
-	# DataMapper.auto_migrate! 
-
+	DataMapper.auto_migrate! 
 
 	get '/' do
 		links = Link.all
@@ -51,8 +49,8 @@ class DB < Sinatra::Base
 	end
 
 	def fill_database
-		# Tag.first(:text => "House")
-		Link.create(:url => "https://soundcloud.com/throwingsnow/max-cooper-origins-throwing-snow-remix-2", :title => "Max Cooper", :blog => "Super chilled")
+		# Tag.first_or_create(:text => ["House"])
+		Link.create(:url => "https://soundcloud.com/throwingsnow/max-cooper-origins-throwing-snow-remix-2", :title => "Max Cooper", :blog => "Super chilled", :tags => Tag.first_or_create(:text => ["House"]))
 		Link.create(:url => "https://soundcloud.com/dj-vadim/dj-vadim-if-life-was-a-thing-ft-demolition-man", :title => "DJ Vadim", :blog => "Sunny goodness")
 		Link.create(:url => "https://soundcloud.com/born-on-road/stivs-katch-pyro-yuh-no-badman-born-on-road-004-clip", :title => "Stivs", :blog => "Badman Ting")
 		Link.create(:url => "https://soundcloud.com/c3b/solskank", :title => "C3B", :blog => "Hardcore")
