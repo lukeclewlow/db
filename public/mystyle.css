@@ -7,6 +7,9 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   box-sizing: border-box;
+  font-weight: 300;
+	line-height: 1.625;
+	color: #38424b;
 }
 
 *, *:before, *:after {
@@ -15,40 +18,74 @@ html {
 
 body{
 	margin: 0;
+	overflow-x: hidden;
+	text-align: center;
+	margin: 0 auto;
 }
 
 h1 {
 	text-align: center;
-	border: solid blue 1px;
+	border-bottom: solid 1px;
+	text-align: center;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	/*border: solid blue 1px;*/
 	/*height: 100%;*/
 }
 
 article {
-	border: solid red 1px;
+	/*border: solid red 1px;*/
 	margin-left: auto;
 	margin-right: auto;
-	padding: 1em;
+	padding: 0.5em;
+	/*border-bottom: solid 1px;*/
+}
+
+h3 {
+	padding-bottom: .75em;
 }
 
 iframe {
-	border: solid orange 1px;
+	/*border: solid orange 1px;*/
 }
 
-container {
-	border: solid black 2px;
+p {
+/*	padding-left: 30%;
+	padding-right: 30%;*/
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 2em;
+	border-bottom: solid 1px;
+}
+
+
+#new-link {
+	text-align: center;
+}
+
+#categories {
+	text-align: center;
+}
+
+.container {
+	/*border: solid black 2px;*/
 	display: block;
 }
 
 .topper {
-	border: solid blue 1px;
+	/*border: solid blue 1px;*/
 /*	height: 100%;*/
 	width: 100%;
-	padding: 1em;
-	margin-bottom: 1em;
+	text-align: center;
+	margin: 0 auto;
+	/*padding: 1em;*/
+	/*margin-bottom: 1em;*/
 }
 
 .categories {
-	border: solid blue 1px;
+	/*border: solid blue 1px;*/
 	height: 100%;
 	width: 15%;
 	float: left;
@@ -56,22 +93,22 @@ container {
 }
 
 .main-body {
-	border: solid blue 1px;
+	/*border: solid blue 1px;*/
 	height: 100%;
-	width: 85%;
+	width: 100%;
 	float: left;
 }
 
 .articles {
-	margin-top: 2em;
+	/*margin-top: .5em;*/
 	text-align: center;
 }
 
 #first-article {
-	border: solid yellow 3px;
+	/*border: solid yellow 3px;*/
 }
 
 #second-article {
-	border: solid green 3px;
+	/*border: solid green 3px;*/
 }
 

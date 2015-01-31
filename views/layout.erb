@@ -1,5 +1,6 @@
 <head>
   <title>musicdb</title>
+  <script src="/assets/jquery.js"></script>
   <link rel="stylesheet" type="text/css" href="normalize.css">
   <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
@@ -10,13 +11,8 @@
   <h1>dB</h1>
 </section>
 
-<section class="categories">
+<section class="main-body">
 
-<ul>
-	<% @tags.each do |tag| %>
-	<a href="/tags/<%= tag.text %>"><%= tag.text %></a>
-	<% end %>
-</ul>
 
 <div id="new-link">
   <form action="/links" method="post">
@@ -28,9 +24,13 @@
   </form>
 </div>
 
-</section>
+<ul id="categories">
+	<% @tags.each do |tag| %>
+	<a href="/tags/<%= tag.text %>"><%= tag.text %></a>
+	<% end %>
+</ul>
 
-<section class="main-body">
+
 
 	<section class="articles">
 
@@ -52,10 +52,6 @@
 
 	<% end %>
 
-
-
-
-
 	</section>
 
 </section>
@@ -63,6 +59,12 @@
 <!--   {{> hello}} -->
 
 <%= yield %>
+
+<script>
+  $('div').on('click', function() {
+    $(this).toggleClass('show-description');
+  }); 
+</script>
 
 </body>
 

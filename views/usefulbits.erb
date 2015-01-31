@@ -1,0 +1,20 @@
+
+<section class="categories">
+
+<ul>
+	<% @tags.each do |tag| %>
+	<a href="/tags/<%= tag.text %>"><%= tag.text %></a>
+	<% end %>
+</ul>
+
+<div id="new-link">
+  <form action="/links" method="post">
+    Url: <input type="text" name="url">
+    Title: <input type="text" name="title">
+    Blog: <input type="text" name="blog">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add link">
+  </form>
+</div>
+
+</section>

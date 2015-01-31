@@ -52,7 +52,7 @@ class DB < Sinatra::Base
 		@tags = Tag.all
 		tag = Tag.all(:text => genre)
 		@links = tag.links 
-		erb :filtered
+		erb :index
 	end
 
 	# get '/Folk' do
