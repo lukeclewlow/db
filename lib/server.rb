@@ -42,25 +42,32 @@ class DB < Sinatra::Base
 	  redirect to('/')
 	end
 
-	get '/tags/:text' do
-	  tag = Tag.first(:text => params[:text])
-	  @links = tag ? tag.links : []
-	  erb :index	
-	end
+	# get '/tags/:text' do
+	#   tag = Tag.first(:text => params[:text])
+	#   @links = tag ? tag.links : []
+	#   erb :index	
+	# end
 
-	get '/Folk' do
+	get '/tags/:genre' do |genre|
 		@tags = Tag.all
-		tag = Tag.all(:text => "Folk")
-		@links = tag.links
+		tag = Tag.all(:text => genre)
+		@links = tag.links 
 		erb :filtered
 	end
 
-	get '/Jungle' do
-		@tags = Tag.all
-		tag = Tag.all(:text => "Jungle")
-		@links = tag.links
-		erb :filtered
-	end
+	# get '/Folk' do
+	# 	@tags = Tag.all
+	# 	tag = Tag.all(:text => "Folk")
+	# 	@links = tag.links
+	# 	# erb :filtered
+	# end
+
+	# get '/Jungle' do
+	# 	@tags = Tag.all
+	# 	tag = Tag.all(:text => "Jungle")
+	# 	@links = tag.links
+	# 	# erb :filtered
+	# end
 
 
 	# def fill_database

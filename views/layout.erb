@@ -1,0 +1,72 @@
+<head>
+  <title>musicdb</title>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<section class="topper">
+  <h1>dB</h1>
+</section>
+
+<section class="categories">
+
+<ul>
+	<% @tags.each do |tag| %>
+	<a href="/tags/<%= tag.text %>"><%= tag.text %></a>
+	<% end %>
+</ul>
+
+<div id="new-link">
+  <form action="/links" method="post">
+    Url: <input type="text" name="url">
+    Title: <input type="text" name="title">
+    Blog: <input type="text" name="blog">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add link">
+  </form>
+</div>
+
+</section>
+
+<section class="main-body">
+
+	<section class="articles">
+
+	<% @links.each do |link| %>
+
+	<article id="first-article">
+		<h3><%= link.title %></h3>
+
+		<container class="videos">
+
+			<%= link.url %>
+
+		</container>
+
+		<p><%= link.blog %></p>
+
+
+	</article>
+
+	<% end %>
+
+
+
+
+
+	</section>
+
+</section>
+
+<!--   {{> hello}} -->
+
+<%= yield %>
+
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
