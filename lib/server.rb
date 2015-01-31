@@ -49,9 +49,11 @@ class DB < Sinatra::Base
 	end
 
 	def fill_database
+		tags = "House ChillOut Jungle"
+		tags = tags.split(" ").map { |tag| Tag.first_or_create(:text => tag)}
 		# Tag.first_or_create(:text => ["House"])
-		Link.create(:url => "https://soundcloud.com/throwingsnow/max-cooper-origins-throwing-snow-remix-2", :title => "Max Cooper", :blog => "Super chilled", :tags => Tag.first_or_create(:text => ["House"]))
-		Link.create(:url => "https://soundcloud.com/dj-vadim/dj-vadim-if-life-was-a-thing-ft-demolition-man", :title => "DJ Vadim", :blog => "Sunny goodness")
+		Link.create(:url => "https://soundcloud.com/throwingsnow/max-cooper-origins-throwing-snow-remix-2", :title => "Max Cooper", :blog => "Super chilled", :tags => tags)
+		Link.create(:url => "https://soundcloud.com/dj-vadim/dj-vadim-if-life-was-a-thing-ft-demolition-man", :title => "DJ Vadim", :blog => "Sunny goodness", :tags => tags)
 		Link.create(:url => "https://soundcloud.com/born-on-road/stivs-katch-pyro-yuh-no-badman-born-on-road-004-clip", :title => "Stivs", :blog => "Badman Ting")
 		Link.create(:url => "https://soundcloud.com/c3b/solskank", :title => "C3B", :blog => "Hardcore")
 	end
