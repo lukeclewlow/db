@@ -34,71 +34,25 @@
 
 	<section class="articles">
 
+	<% @links.each do |link| %>
 
 	<article id="first-article">
-		<h3>First tune</h3>
+		<h3><%= link.title %></h3>
 
 		<container class="videos">
 
-			<ul>
-				<li><a href="<%= @links[0].url %>"><%= @links[0].title %></a></li>
-			</ul>
+			<%= link.url %>
 
 		</container>
 
-		<p><%= @links[0].blog %></p>
+		<p><%= link.blog %></p>
 
 
 	</article>
 
+	<% end %>
 
-	<article id="second-article">
 
-		<h3>Second tune</h3>
-
-		<container class="videos">
-
-			<ul>
-				<li><a href="<%= @links[1].url %>"><%= @links[1].title %></a></li>
-			</ul>
-
-		</container>
-
-		<p><%= @links[1].blog %></p>
-
-	</article>
-
-	<article id="second-article">
-
-		<h3>Third Tune</h3>
-
-		<container class="videos">
-
-			<ul>
-				<li><a href="<%= @links[2].url %>"><%= @links[2].title %></a></li>
-			</ul>
-
-		</container>
-
-		<p><%= @links[2].blog %></p>
-
-	</article>
-
-		<article id="second-article">
-
-		<h3>Fourth Tune</h3>
-
-		<container class="videos">
-
-			<ul>
-				<li><a href="<%= @links[3].url %>"><%= @links[3].title %></a></li>
-			</ul>
-
-		</container>
-
-		<p><%= @links[3].blog %></p>
-
-	</article>
 
 
 

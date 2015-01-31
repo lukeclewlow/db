@@ -18,21 +18,21 @@ class DB < Sinatra::Base
 
 	DataMapper.finalize
 
-	DataMapper.auto_migrate! 
+	# DataMapper.auto_migrate! 
 
 	get '/' do
-		links = Link.all
-		links.destroy
-		tag = Tag.all
-		tag.destroy
-		fill_database
-		@links = Link.all(:limit => 10)		
+		# links = Link.all
+		# links.destroy
+		# tag = Tag.all
+		# tag.destroy
+		# fill_database
+		@links = Link.all	
 		@tags = Tag.all
 		erb :index
 	end
 
 	post '/links' do
-	  url = params["url"]
+	  url = params['url']
 	  title = params["title"]
 	  blog = params["blog"]
 	  tags = params["tags"].split(" ").map do |tag|
@@ -48,14 +48,13 @@ class DB < Sinatra::Base
 	  erb :index
 	end
 
-	def fill_database
-		tags = "House ChillOut Jungle"
-		tags = tags.split(" ").map { |tag| Tag.first_or_create(:text => tag)}
-		# Tag.first_or_create(:text => ["House"])
-		Link.create(:url => "https://soundcloud.com/throwingsnow/max-cooper-origins-throwing-snow-remix-2", :title => "Max Cooper", :blog => "Super chilled", :tags => tags)
-		Link.create(:url => "https://soundcloud.com/dj-vadim/dj-vadim-if-life-was-a-thing-ft-demolition-man", :title => "DJ Vadim", :blog => "Sunny goodness", :tags => tags)
-		Link.create(:url => "https://soundcloud.com/born-on-road/stivs-katch-pyro-yuh-no-badman-born-on-road-004-clip", :title => "Stivs", :blog => "Badman Ting")
-		Link.create(:url => "https://soundcloud.com/c3b/solskank", :title => "C3B", :blog => "Hardcore")
-	end
+	# def fill_database
+	# 	tags = "House ChillOut Jungle"
+	# 	tags = tags.split(" ").map { |tag| Tag.first_or_create(:text => tag)}
+	# 	Link.create(:url => '<iframe width="560" height="315" src="https://www.youtube.com/embed/t6bjqdll7DI" frameborder="0" allowfullscreen></iframe>', :title => "Rodriguez", :blog => "The man the legend")
+	# 	Link.create(:url => '<iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/179602402&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>', :title => "Max Cooper", :blog => "Super chilled", :tags => tags)
+	# 	Link.create(:url => '<iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/155628096&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>', :title => "DJ Vadim", :blog => "Sunny goodness", :tags => tags)
+	# 	Link.create(:url => '<iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/175495275&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>', :title => "Stivs", :blog => "Badman Ting")
+	# end
 
 end
