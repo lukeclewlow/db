@@ -45,8 +45,23 @@ class DB < Sinatra::Base
 	get '/tags/:text' do
 	  tag = Tag.first(:text => params[:text])
 	  @links = tag ? tag.links : []
-	  erb :index
+	  erb :index	
 	end
+
+	get '/Folk' do
+		@tags = Tag.all
+		tag = Tag.all(:text => "Folk")
+		@links = tag.links
+		erb :filtered
+	end
+
+	get '/Jungle' do
+		@tags = Tag.all
+		tag = Tag.all(:text => "Jungle")
+		@links = tag.links
+		erb :filtered
+	end
+
 
 	# def fill_database
 	# 	tags = "House ChillOut Jungle"
