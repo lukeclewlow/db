@@ -1,8 +1,10 @@
 <head>
   <title>musicdb</title>
-  <script src="/assets/jquery.js"></script>
   <link rel="stylesheet" type="text/css" href="normalize.css">
   <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script type="text/javascript" src="js/jquery-1.11.2 (1).js"></script>
+  <script type="text/javascript" src="js/interface.js"></script>
+
 </head>
 
 <body>
@@ -14,15 +16,18 @@
 <section class="main-body">
 
 
-<!-- <div id="new-link">
+<div id="new-link">
   <form action="/links" method="post">
     Url: <input type="text" name="url">
+    Artist: <input type="text" name="artist">
     Title: <input type="text" name="title">
     Blog: <input type="text" name="blog">
     Tags: <input type="text" name="tags">
     <input type="submit" value="Add link">
   </form>
-</div> -->
+</div>
+
+<button id="genre-button">Genres</button>
 
 <ul id="categories">
 	<% @tags.each do |tag| %>
@@ -37,7 +42,7 @@
 	<% @links.each do |link| %>
 
 	<article id="first-article">
-		<h3><%= link.title %></h3>
+		<h3><%=link.artist%> - <%= link.title %></h3>
 
 		<container class="videos">
 
@@ -46,7 +51,8 @@
 		</container>
 
 		<p><%= link.blog %></p>
-
+    <!-- <span>delete<a href='/<%=link.title%>'><%=link.title%></a></span>
+ -->
 
 	</article>
 
@@ -56,19 +62,9 @@
 
 </section>
 
-<!--   {{> hello}} -->
-
 <%= yield %>
 
-<script>
-  $('div').on('click', function() {
-    $(this).toggleClass('show-description');
-  }); 
-</script>
+
+
 
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
