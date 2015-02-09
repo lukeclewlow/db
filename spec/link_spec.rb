@@ -9,6 +9,8 @@ describe Link do
       expect(Link.count).to eq(0)
       #this creates it in the database, so its stored on the disk
       Link.create(title: 'Makers Academy',
+                  artist: 'Makers',
+                  blog: 'Text here',
                   url: 'http://www.makersacademy.com/')
       #we ask the database how many links we have
       expect(Link.count).to eq(1)

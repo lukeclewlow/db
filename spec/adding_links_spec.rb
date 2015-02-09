@@ -4,12 +4,12 @@ feature "User adds a new link" do
   scenario "when browsing the homepage" do
     expect(Link.count).to eq(0)
     visit '/'
-    # fill_database
-    expect(Link.count).to eq(4)
+    add_link("www.google.com", "Google", "Search")
+    expect(Link.count).to eq(1)
     link = Link.first
-    expect(link.url).to eq("https://soundcloud.com/throwingsnow/max-cooper-origins-throwing-snow-remix-2")
-    expect(link.title).to eq("Max Cooper")  
-    expect(link.blog).to eq("Super chilled")
+    expect(link.url).to eq("www.google.com")
+    expect(link.title).to eq("Google")  
+    expect(link.blog).to eq("Search")
   end
 
   def add_link(url, title, blog)

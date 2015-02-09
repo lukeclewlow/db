@@ -2,8 +2,8 @@ $(document).ready(function() {
 
   var categories = $( "#categories" );
 
-  $('#genre-button').on('click', function(event) {
-    categories.toggle(showOrHide);
+  $('#genre-button').click(function(event) {
+    categories.slideToggle();
   });
 
   // $('.temperature-down').on('click', function() {

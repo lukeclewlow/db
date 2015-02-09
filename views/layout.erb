@@ -1,16 +1,16 @@
 <head>
   <title>musicdb</title>
-  <link rel="stylesheet" type="text/css" href="normalize.css">
-  <link rel="stylesheet" type="text/css" href="mystyle.css">
-  <script type="text/javascript" src="js/jquery-1.11.2 (1).js"></script>
-  <script type="text/javascript" src="js/interface.js"></script>
+  <link rel="stylesheet" type="text/css" href="/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/mystyle.css">
+  <script type="text/javascript" src="/js/jquery-1.11.2 (1).js"></script>
+  <script type="text/javascript" src="/js/interface.js"></script>
 
 </head>
 
 <body>
 
 <section class="topper">
-  <h1>dB</h1>
+  <h1><a href="/">d(-_-)b</a></h1>
 </section>
 
 <section class="main-body">
@@ -27,11 +27,11 @@
   </form>
 </div>
 
-<button id="genre-button">Genres</button>
+<span id="genre-button">Show Genres</span>
 
-<ul id="categories">
+<ul id="categories" style="display:none">
 	<% @tags.each do |tag| %>
-	<a href="/tags/<%= tag.text %>"><%= tag.text %></a>
+	-<a href="/tags/<%= tag.text %>"><%= tag.text %></a>-
 	<% end %>
 </ul>
 
@@ -51,8 +51,8 @@
 		</container>
 
 		<p><%= link.blog %></p>
-    <!-- <span>delete<a href='/<%=link.title%>'><%=link.title%></a></span>
- -->
+
+    <span>delete<a href='/<%=link.title%>'><%=link.title%></a></span>
 
 	</article>
 

@@ -17,6 +17,7 @@ class DB < Sinatra::Base
 	require './lib/tag'
 
 	DataMapper.finalize
+	# DataMapper.auto_upgrade!
 
 	# DataMapper.auto_migrate! 
 
@@ -38,25 +39,22 @@ class DB < Sinatra::Base
 	  redirect to('/')
 	end
 
-	get '/:delete' do 
+	delete '/:delete' do 
 		link = Link.all(:title => params[:delete])
-		link.destroy!
-		erb :index
-		redirect to('/')
+		if link.destroy!
+		  redirect to('/') 
+		else
+			erb :index
+		end
 	end
 
 	get '/tags/:genre' do |genre|
 		@tags = Tag.all(:order => :text.asc)
 		tag = Tag.all(:text => genre)
 		@links = tag.links 
-		erb :index
+		erb :filtered
 	end	
 
-	# get '/tags/:text' do
-	#   tag = Tag.first(:text => params[:text])
-	#   @links = tag ? tag.links : []
-	#   erb :index	
-	# end
-
+	
 
 end
