@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'sinatra/base'
+require 'bcrypt'
 
 class DB < Sinatra::Base
 
@@ -15,9 +16,10 @@ class DB < Sinatra::Base
 
 	require './lib/link'
 	require './lib/tag'
+	require './lib/user'
 
 	DataMapper.finalize
-	# DataMapper.auto_upgrade!
+	DataMapper.auto_upgrade!
 
 	# DataMapper.auto_migrate! 
 
@@ -39,6 +41,17 @@ class DB < Sinatra::Base
 	  redirect to('/')
 	end
 
+	get '/users/new' do
+		@user = User.new
+		erb :"users/new"
+	end
+
+	post '/users' do
+	  User.create(:email => params[:email],
+	              :password => params[:password])
+	  redirect to('/')
+	end
+
 	delete '/:delete' do 
 		link = Link.all(:title => params[:delete])
 		if link.destroy!
@@ -52,8 +65,16 @@ class DB < Sinatra::Base
 		@tags = Tag.all(:order => :text.asc)
 		tag = Tag.all(:text => genre)
 		@links = tag.links 
-		erb :filtered
+		erb :index
 	end	
+
+	helpers do
+
+  def current_user
+    @current_user ||=User.get(session[:user_id]) if session[:user_id]
+  end
+
+end
 
 	
 

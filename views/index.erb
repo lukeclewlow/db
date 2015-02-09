@@ -1,0 +1,48 @@
+<section class="main-body">
+
+
+<div id="new-link">
+  <form action="/links" method="post">
+    Url: <input type="text" name="url">
+    Artist: <input type="text" name="artist">
+    Title: <input type="text" name="title">
+    Blog: <input type="text" name="blog">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add link">
+  </form>
+</div>
+
+<span id="genre-button">Show Genres</span>
+
+<ul id="categories" style="display:none">
+	<% @tags.each do |tag| %>
+	-<a href="/tags/<%= tag.text %>"><%= tag.text %></a>-
+	<% end %>
+</ul>
+
+
+
+	<section class="articles">
+
+	<% @links.each do |link| %>
+
+	<article id="first-article">
+		<h3><%=link.artist%> - <%= link.title %></h3>
+
+		<container class="videos">
+
+			<%= link.url %>
+
+		</container>
+
+		<p><%= link.blog %></p>
+
+    <span>delete<a href='/<%=link.title%>'><%=link.title%></a></span>
+
+	</article>
+
+	<% end %>
+
+	</section>
+
+</section>
