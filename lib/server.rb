@@ -18,6 +18,9 @@ class DB < Sinatra::Base
 	require './lib/tag'
 	require './lib/user'
 
+	enable :sessions
+	set :session_secret, 'super secret'
+
 	DataMapper.finalize
 	DataMapper.auto_upgrade!
 
